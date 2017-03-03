@@ -1,0 +1,18 @@
+{
+  "name": "functional-programming-exercises",
+  "description": "Introductory exercises on functional programming concepts using JavaScript.",
+  "private": false,
+  "version": "0.0.0",
+  "dependencies": {
+    "accounting": "^0.4.1",
+    "chai": "^1.9.1",
+    "data.task": "^3.0.0",
+    "ramda": "^0.13.0"
+  },
+  "devDependencies": {
+    "mocha": "^1.17.1"
+  },
+  "scripts": {
+    "test": "mocha **/*_spec.js"
+  }
+}
