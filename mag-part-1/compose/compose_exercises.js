@@ -26,8 +26,9 @@ var isLastInStock = _.compose(_.prop('in_stock'), _.last)
 
 // Exercise 2:
 // ============
+// Original Code kept for tutorial puposes:
 // use _.compose(), _.prop() and _.head() to retrieve the name of the first car
-var nameOfFirstCar = undefined;
+var nameOfFirstCar = _.compose(_.prop('name'), _.head)
 
 
 // Exercise 3:
