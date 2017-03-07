@@ -33,6 +33,7 @@ var nameOfFirstCar = _.compose(_.prop('name'), _.head)
 
 // Exercise 3:
 // ============
+// Original Code kept for tutorial puposes:
 // Use the helper function _average to refactor averageDollarValue as a composition
 var _average = function(xs) { return reduce(add, 0, xs) / xs.length; }; // <- leave be
 
@@ -41,6 +42,7 @@ var averageDollarValue = function(cars) {
   return _average(dollar_values);
 };
 
+var averageValue = _.compose(_average, map(CARS.dollar_value))
 
 // Exercise 4:
 // ============
