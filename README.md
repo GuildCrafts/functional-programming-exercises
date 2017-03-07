@@ -2,7 +2,7 @@
 
 Introductory exercises on functional programming concepts using JavaScript.
 
-Base repository for the [Functional Programming: Concepts and Exercises](https://github.com/GuildCrafts/web-development-js/issues/110) goal.
+Base repository for the [Functional Programming: Concepts and Exercises](http://jsdev.learnersguild.org/goals/110) goal.
 
 ## Getting Started
 
