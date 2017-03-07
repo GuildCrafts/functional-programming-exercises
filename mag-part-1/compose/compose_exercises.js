@@ -1,7 +1,7 @@
 require('../support');
 var _ = require('ramda');
 var accounting = require('accounting');
-  
+
 // Example Data
 var CARS = [
     {name: "Ferrari FF", horsepower: 660, dollar_value: 700000, in_stock: true},
@@ -15,10 +15,14 @@ var CARS = [
 // Exercise 1:
 // ============
 // use _.compose() to rewrite the function below. Hint: _.prop() is curried.
-var isLastInStock = function(cars) {
-  var reversed_cars = _.last(cars);
-  return _.prop('in_stock', reversed_cars)
-};
+// Original Code kept for tutorial puposes:
+// var isLastInStock = function(cars) {
+//   var reversed_cars = _.last(cars);
+//   return _.prop('in_stock', reversed_cars)
+// };
+
+
+var isLastInStock = _.compose(_.prop('in_stock'), _.last)
 
 // Exercise 2:
 // ============
