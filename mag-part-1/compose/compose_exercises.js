@@ -50,7 +50,7 @@ var averageValue = _.compose(_average, map(CARS.dollar_value))
 
 var _underscore = replace(/\W+/g, '_'); //<-- leave this alone and use to sanitize
 
-var sanitizeNames = undefined;
+var sanitizeNames =_.compose(_underscore, _.prop('name'))
 
 
 // Bonus 1:
