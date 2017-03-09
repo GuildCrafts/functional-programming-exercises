@@ -66,13 +66,33 @@ var output = sanitizeNames(CARS)
 // Bonus 1:
 // ============
 // Refactor availablePrices with compose.
+// ORIGINAL CODE:
 
-var availablePrices = function(cars) {
-  var available_cars = _.filter(_.prop('in_stock'), cars);
-  return available_cars.map(function(x){
-    return accounting.formatMoney(x.dollar_value)
-  }).join(', ');
-};
+// var availablePrices = function(cars) {
+//   var available_cars = _.filter(_.prop('in_stock'), cars);
+//   return available_cars.map(function(x){
+//     return accounting.formatMoney(x.dollar_value)
+//   }).join(', ');
+// };
+
+
+var carsInStock = function( cars ) {
+    return _.filter(_.prop('in_stock'), cars)
+}
+
+var convertToHumanDollars = function( available_cars ) {
+  return available_cars.map( function( x ) {
+    return accounting.formatMoney( x.dollar_value )
+  })
+}
+
+var bringTogether = function( values ) {
+  return values.join( ', ' )
+}
+
+
+var availablePrices = _.compose( bringTogether, convertToHumanDollars, carsInStock )
+
 
 
 // Bonus 2:
