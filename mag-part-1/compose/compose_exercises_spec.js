@@ -1,7 +1,7 @@
 var E = require('./compose_exercises');
 var assert = require("chai").assert;
 
-describe("Compose Exercises", function(){  
+describe("Compose Exercises", function(){
   var CARS = E.CARS
 
   it('Exercise 1', function(){
