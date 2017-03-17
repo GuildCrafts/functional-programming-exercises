@@ -6,17 +6,19 @@ var _ = require('ramda');
 // ==========
 // Use _.add(x,y) and _.map(f,x) to make a function that increments a value inside a functor
 
-var ex1 = undefined;
-
+ex1 = (functor) => {
+  return _.map(x => _.add(1)(x), functor)
+}
 
 
 // Exercise 2
 // ==========
 // Use _.head to get the first element of the list
-var xs = Identity.of(['do', 'ray', 'me', 'fa', 'so', 'la', 'ti', 'do']);
+// var xs = Identity.of(['do', 'ray', 'me', 'fa', 'so', 'la', 'ti', 'do']);
 
-var ex2 = undefined;
-
+ex2 = (functor) => {
+ return _.map(x => _.head(x), functor);
+}
 
 
 // Exercise 3
@@ -26,8 +28,9 @@ var safeProp = _.curry(function (x, o) { return Maybe.of(o[x]); });
 
 var user = { id: 2, name: "Albert" };
 
-var ex3 = undefined;
-
+ex3 = (obj) => {
+  return _.map(x => _.head(x), safeProp('name',obj))
+};
 
 
 // Exercise 4
@@ -38,7 +41,9 @@ var ex4 = function (n) {
   if (n) { return parseInt(n); }
 };
 
-var ex4 = undefined;
+var ex4 = (n) => {
+  return Maybe.of(parseInt(n))
+};
 
 
 
@@ -50,12 +55,14 @@ var ex4 = undefined;
 var getPost = function (i) {
   return new Task(function(rej, res) {
     setTimeout(function(){
-      res({id: i, title: 'Love them futures'})  
+      res({id: i, title: 'Love them futures'})
     }, 300)
   });
 };
 
-var ex5 = undefined;
+var ex5 = (x) => {
+  return  getPost(x).map(_.compose(_.toUpper, _.prop('title')))
+}
 
 
 
@@ -69,7 +76,9 @@ var checkActive = function(user) {
  return user.active ? Right.of(user) : Left.of('Your account is not active')
 };
 
-var ex6 = undefined;
+var ex6 = (obj) => {
+    return checkActive(obj).map(showWelcome)
+};
 
 
 
@@ -78,7 +87,7 @@ var ex6 = undefined;
 // Write a validation function that checks for a length > 3. It should return Right(x) if it is greater than 3 and Left("You need > 3") otherwise
 
 var ex7 = function(x) {
-  return undefined; // <--- write me. (don't be pointfree)
+  return x.length > 3 ? Right.of(x): Left.of("You need > 3"); // <--- write me. (don't be pointfree)
 };
 
 
@@ -94,6 +103,8 @@ var save = function(x) {
   });
 };
 
-var ex8 = undefined;
+var ex8 = (value) => {
+  return  either(IO.of, save, ex7(value))
+}
 
 module.exports = {ex1: ex1, ex2: ex2, ex3: ex3, ex4: ex4, ex5: ex5, ex6: ex6, ex7: ex7, ex8: ex8};

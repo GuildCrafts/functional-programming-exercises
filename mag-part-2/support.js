@@ -30,7 +30,7 @@ Identity.prototype.inspect = function() {
 Maybe = function(x) {
   this.__value = x;
 };
-
+  
 Maybe.of = function(x) {
   return new Maybe(x);
 };

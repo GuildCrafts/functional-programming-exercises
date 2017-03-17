@@ -3,7 +3,6 @@ var E = require('./functor_exercises');
 var assert = require("chai").assert;
 
 describe("Functor Exercises", function(){
-
   it('Exercise 1', function(){
     assert.deepEqual(E.ex1(Identity.of(2)), Identity.of(3));
   });
