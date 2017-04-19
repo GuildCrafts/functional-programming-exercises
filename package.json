@@ -15,6 +15,6 @@
   },
   "scripts": {
     "test": "mocha **/*_spec.js",
-    "lint": "./node_modules/.bin/eslint ./mag-part-1/**/*.js"
+    "lint": "./node_modules/.bin/eslint ./mag-part-1/**/*.js && ./node_modules/.bin/eslint ./mag-part-2/functors/*.js"
   }
 }
