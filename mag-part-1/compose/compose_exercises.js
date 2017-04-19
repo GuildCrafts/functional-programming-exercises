@@ -83,7 +83,11 @@ var availablePrices = _.compose(join(', '), accounting.formatMoney, map(_.prop('
 //   return fastest.name + ' is the fastest';
 // };
 
-var fastestCar = _.compose(join(''), _.append(' is the fastest'), _.prop('name'), _.last, _.sortBy(_.prop('horsepower')))
+// Solution
+const fastestCar = _.compose(_.flip(_.concat)(' is the fastest'), _.prop(‘name’), _.last, _.sortBy(_.prop(‘horsepower’)))
+
+//Alternate solution
+// var fastestCar = _.compose(join(''), _.append(' is the fastest'), _.prop('name'), _.last, _.sortBy(_.prop('horsepower')))
 
 module.exports = { CARS: CARS,
                    isLastInStock: isLastInStock,
