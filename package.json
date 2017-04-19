@@ -10,9 +10,11 @@
     "ramda": "^0.13.0"
   },
   "devDependencies": {
+    "eslint": "^3.19.0",
     "mocha": "^1.17.1"
   },
   "scripts": {
-    "test": "mocha **/*_spec.js"
+    "test": "mocha **/*_spec.js",
+    "lint": "./node_modules/.bin/eslint ./mag-part-1/**/*.js"
   }
 }
