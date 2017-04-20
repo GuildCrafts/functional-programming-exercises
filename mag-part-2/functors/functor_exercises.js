@@ -70,7 +70,7 @@ const ex6 = _.compose(_.map(showWelcome), checkActive)
 // ==========
 // Write a validation function that checks for a length > 3. It should return Right(x) if it is greater than 3 and Left("You need > 3") otherwise
 
-const ex7 = (x) => x.length ? Right.of(x) : Left.of('You need > 3') // <--- write me. (don't be pointfree)
+const ex7 = (x) => x.length > 3 ? Right.of(x) : Left.of('You need > 3') // <--- write me. (don't be pointfree)
 
 
 
@@ -85,6 +85,6 @@ const save = (x) => {
   })
 }
 
-const ex8 = _.compose(either(IO.of,save), ex7)
+const ex8 = _.compose(either(IO.of, save), ex7)
 
 module.exports = {ex1: ex1, ex2: ex2, ex3: ex3, ex4: ex4, ex5: ex5, ex6: ex6, ex7: ex7, ex8: ex8}

@@ -21,6 +21,12 @@
         "semi": [
             "error",
             "never"
-        ]
+        ],
+        "no-unused-vars": [
+            "error", {
+            "vars": "all",
+            "args": "all",
+            "ignoreRestSiblings": true
+        }]
     }
 }
