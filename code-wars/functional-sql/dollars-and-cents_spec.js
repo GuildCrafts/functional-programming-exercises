@@ -1,5 +1,5 @@
 require('../support');
-var E = require('./functor_exercises');
+var E = require('./dollars-and-cents');
 var assert = require("chai").assert;
 
 describe("Dollas and sense", function(){
