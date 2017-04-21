@@ -1,0 +1,1 @@
+add = num => n => n + num
