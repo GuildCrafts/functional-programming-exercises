@@ -24,12 +24,12 @@
         ],
         "no-unused-vars": [
             1
-          ],
+        ],
         "no-undef": [
-          1
+            1
         ],
         "no-console": [
-          1
+            1
         ]
     }
 }

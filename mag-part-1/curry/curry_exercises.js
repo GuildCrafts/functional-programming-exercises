@@ -60,6 +60,7 @@ var slice = _.curry((start, num, arr) => arr.slice(start, num))
 
 // Bonus 2:
 // ============
+
 // use slice to define a function "take" that takes n elements. Make it curried
 // Use slice to define a function "take" that returns n elements from the beginning of an array. Make it curried.
 // For ['a', 'b', 'c'] with n=2 it should return ['a', 'b'].
