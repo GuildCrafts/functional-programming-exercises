@@ -1,0 +1,153 @@
+DevList = [{
+  "firstName": "Sofia",
+  "lastName": "P.",
+  "country": "Italy",
+  "continent": "Europe",
+  "age": 41,
+  "language": "Clojure"
+}, {
+  "firstName": "Kseniya",
+  "lastName": "T.",
+  "country": "Belarus",
+  "continent": "Europe",
+  "age": 29,
+  "language": "JavaScript"
+}, {
+  "firstName": "Jing",
+  "lastName": "X.",
+  "country": "China",
+  "continent": "Asia",
+  "age": 39,
+  "language": "Ruby"
+}, {
+  "firstName": "Noa",
+  "lastName": "A.",
+  "country": "Israel",
+  "continent": "Asia",
+  "age": 40,
+  "language": "Ruby"
+}, {
+  "firstName": "Andrei",
+  "lastName": "E.",
+  "country": "Romania",
+  "continent": "Europe",
+  "age": 59,
+  "language": "C"
+}, {
+  "firstName": "Maria",
+  "lastName": "S.",
+  "country": "Peru",
+  "continent": "Americas",
+  "age": 60,
+  "language": "C"
+}, {
+  "firstName": "Lukas",
+  "lastName": "X.",
+  "country": "Croatia",
+  "continent": "Europe",
+  "age": 75,
+  "language": "Python"
+}, {
+  "firstName": "Chloe",
+  "lastName": "K.",
+  "country": "Guernsey",
+  "continent": "Europe",
+  "age": 88,
+  "language": "Ruby"
+}, {
+  "firstName": "Viktoria",
+  "lastName": "W.",
+  "country": "Bulgaria",
+  "continent": "Europe",
+  "age": 98,
+  "language": "PHP"
+}, {
+  "firstName": "Piotr",
+  "lastName": "B.",
+  "country": "Poland",
+  "continent": "Europe",
+  "age": 128,
+  "language": "JavaScript"
+}]
+
+expectedDevList = Expected: [{
+  firstName: 'Sofia',
+  lastName: 'P.',
+  country: 'Italy',
+  continent: 'Europe',
+  age: 41,
+  language: 'Clojure',
+  username: 'sofiap1986'
+}, {
+  firstName: 'Kseniya',
+  lastName: 'T.',
+  country: 'Belarus',
+  continent: 'Europe',
+  age: 29,
+  language: 'JavaScript',
+  username: 'kseniyat1998'
+}, {
+  firstName: 'Jing',
+  lastName: 'X.',
+  country: 'China',
+  continent: 'Asia',
+  age: 39,
+  language: 'Ruby',
+  username: 'jingx1988'
+}, {
+  firstName: 'Noa',
+  lastName: 'A.',
+  country: 'Israel',
+  continent: 'Asia',
+  age: 40,
+  language: 'Ruby',
+  username: 'noaa1987'
+}, {
+  firstName: 'Andrei',
+  lastName: 'E.',
+  country: 'Romania',
+  continent: 'Europe',
+  age: 59,
+  language: 'C',
+  username: 'andreie1968'
+}, {
+  firstName: 'Maria',
+  lastName: 'S.',
+  country: 'Peru',
+  continent: 'Americas',
+  age: 60,
+  language: 'C',
+  username: 'marias1967'
+}, {
+  firstName: 'Lukas',
+  lastName: 'X.',
+  country: 'Croatia',
+  continent: 'Europe',
+  age: 75,
+  language: 'Python',
+  username: 'lukasx1952'
+}, {
+  firstName: 'Chloe',
+  lastName: 'K.',
+  country: 'Guernsey',
+  continent: 'Europe',
+  age: 88,
+  language: 'Ruby',
+  username: 'chloek1939'
+}, {
+  firstName: 'Viktoria',
+  lastName: 'W.',
+  country: 'Bulgaria',
+  continent: 'Europe',
+  age: 98,
+  language: 'PHP',
+  username: 'viktoriaw1929'
+}, {
+  firstName: 'Piotr',
+  lastName: 'B.',
+  country: 'Poland',
+  continent: 'Europe',
+  age: 128,
+  language: 'JavaScript',
+  username: 'piotrb1899'
+}]

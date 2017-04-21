@@ -23,10 +23,13 @@
             "never"
         ],
         "no-unused-vars": [
-            "error", {
-            "vars": "all",
-            "args": "all",
-            "ignoreRestSiblings": true
-        }]
+            1
+        ],
+        "no-undef": [
+            1
+        ],
+        "no-console": [
+            1
+        ]
     }
 }
