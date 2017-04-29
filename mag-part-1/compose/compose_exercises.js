@@ -1,7 +1,7 @@
 require('../support');
 var _ = require('ramda');
 var accounting = require('accounting');
-  
+
 // Example Data
 var CARS = [
     {name: "Ferrari FF", horsepower: 660, dollar_value: 700000, in_stock: true},
@@ -15,19 +15,25 @@ var CARS = [
 // Exercise 1:
 // ============
 // use _.compose() to rewrite the function below. Hint: _.prop() is curried.
-var isLastInStock = function(cars) {
-  var reversed_cars = _.last(cars);
-  return _.prop('in_stock', reversed_cars)
-};
+// Original Code kept for tutorial puposes:
+// var isLastInStock = function(cars) {
+//   var reversed_cars = _.last(cars);
+//   return _.prop('in_stock', reversed_cars)
+// };
+
+
+var isLastInStock = _.compose(_.prop('in_stock'), _.last)
 
 // Exercise 2:
 // ============
+// Original Code kept for tutorial puposes:
 // use _.compose(), _.prop() and _.head() to retrieve the name of the first car
-var nameOfFirstCar = undefined;
+var nameOfFirstCar = _.compose(_.prop('name'), _.head)
 
 
 // Exercise 3:
 // ============
+// Original Code kept for tutorial puposes:
 // Use the helper function _average to refactor averageDollarValue as a composition
 var _average = function(xs) { return reduce(add, 0, xs) / xs.length; }; // <- leave be
 
@@ -36,6 +42,7 @@ var averageDollarValue = function(cars) {
   return _average(dollar_values);
 };
 
+var averageValue = _.compose(_average, map(CARS.dollar_value))
 
 // Exercise 4:
 // ============
@@ -43,19 +50,49 @@ var averageDollarValue = function(cars) {
 
 var _underscore = replace(/\W+/g, '_'); //<-- leave this alone and use to sanitize
 
-var sanitizeNames = undefined;
+var format = _.compose(_underscore, _.toLower)
+function formatArray(inputArray) {
+  return _.map(format, inputArray)
+}
+
+function grab(inputArray) {
+  return _.map(_.prop('name'), inputArray )
+}
+var sanitizeNames = _.compose(formatArray, grab)
+
+var output = sanitizeNames(CARS)
 
 
 // Bonus 1:
 // ============
 // Refactor availablePrices with compose.
+// ORIGINAL CODE:
 
-var availablePrices = function(cars) {
-  var available_cars = _.filter(_.prop('in_stock'), cars);
-  return available_cars.map(function(x){
-    return accounting.formatMoney(x.dollar_value)
-  }).join(', ');
-};
+// var availablePrices = function(cars) {
+//   var available_cars = _.filter(_.prop('in_stock'), cars);
+//   return available_cars.map(function(x){
+//     return accounting.formatMoney(x.dollar_value)
+//   }).join(', ');
+// };
+
+
+var carsInStock = function( cars ) {
+    return _.filter(_.prop('in_stock'), cars)
+}
+
+var convertToHumanDollars = function( available_cars ) {
+  return available_cars.map( function( x ) {
+    return accounting.formatMoney( x.dollar_value )
+  })
+}
+
+var bringTogether = function( values ) {
+  return values.join( ', ' )
+}
+
+
+var availablePrices = _.compose( bringTogether, convertToHumanDollars, carsInStock )
+
 
 
 // Bonus 2:
