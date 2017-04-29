@@ -22,7 +22,7 @@ describe("Functor Exercises", function(){
     assert.deepEqual(E.ex4("4"), Maybe.of(4));
   });
 
-  it('Exercise 5', function(done){
+  it.only('Exercise 5', function(done){
     E.ex5(13).fork(console.log, function(res){
       assert.deepEqual(res, 'LOVE THEM FUTURES');
       done();
