@@ -13,6 +13,6 @@
     "mocha": "^1.17.1"
   },
   "scripts": {
-    "test": "mocha **/*_spec.js"
+    "test": "mocha **/*_spec.js -w"
   }
 }
