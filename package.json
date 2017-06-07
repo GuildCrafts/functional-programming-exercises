@@ -7,9 +7,12 @@
     "accounting": "^0.4.1",
     "chai": "^1.9.1",
     "data.task": "^3.0.0",
+    "file-system": "^2.2.2",
     "ramda": "^0.13.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.5.1",
     "mocha": "^1.17.1"
   },
   "scripts": {
