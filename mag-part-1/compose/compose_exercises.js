@@ -1,7 +1,7 @@
 require('../support');
-var _ = require('ramda');
+var ramda = require('ramda');
 var accounting = require('accounting');
-  
+
 // Example Data
 var CARS = [
     {name: "Ferrari FF", horsepower: 660, dollar_value: 700000, in_stock: true},
@@ -14,16 +14,13 @@ var CARS = [
 
 // Exercise 1:
 // ============
-// use _.compose() to rewrite the function below. Hint: _.prop() is curried.
-var isLastInStock = function(cars) {
-  var reversed_cars = _.last(cars);
-  return _.prop('in_stock', reversed_cars)
-};
+// use ramda.compose() to rewrite the function below. Hint: ramda.prop() is curried.
+var isLastInStock = ramda.compose(ramda.prop('in_stock'), ramda.last);
 
 // Exercise 2:
 // ============
-// use _.compose(), _.prop() and _.head() to retrieve the name of the first car
-var nameOfFirstCar = undefined;
+// use ramda.compose(), ramda.prop() and ramda.head() to retrieve the name of the first car
+var nameOfFirstCar = ramda.compose(ramda.prop('name'), ramda.head);
 
 
 // Exercise 3:
@@ -31,10 +28,8 @@ var nameOfFirstCar = undefined;
 // Use the helper function _average to refactor averageDollarValue as a composition
 var _average = function(xs) { return reduce(add, 0, xs) / xs.length; }; // <- leave be
 
-var averageDollarValue = function(cars) {
-  var dollar_values = map(function(c) { return c.dollar_value; }, cars);
-  return _average(dollar_values);
-};
+var averageDollarValue = ramda.compose(_average, ramda.map(ramda.prop('dollar_value')));
+
 
 
 // Exercise 4:
@@ -43,31 +38,24 @@ var averageDollarValue = function(cars) {
 
 var _underscore = replace(/\W+/g, '_'); //<-- leave this alone and use to sanitize
 
-var sanitizeNames = undefined;
+var sanitizeNames = ramda.map(ramda.compose(_underscore, toLowerCase, ramda.prop('name')));
 
 
 // Bonus 1:
 // ============
 // Refactor availablePrices with compose.
-
-var availablePrices = function(cars) {
-  var available_cars = _.filter(_.prop('in_stock'), cars);
-  return available_cars.map(function(x){
-    return accounting.formatMoney(x.dollar_value)
-  }).join(', ');
-};
-
+var formatPrice = ramda.compose(accounting.formatMoney, ramda.prop('dollar_value'));
+var availablePrices =  ramda.compose(join(', '), ramda.map(formatPrice), ramda.filter(ramda.prop('in_stock')));
 
 // Bonus 2:
 // ============
-// Refactor to pointfree. Hint: you can use _.flip()
+// Refactor to pointfree. Hint: you can use ramda.flip()
 
-var fastestCar = function(cars) {
-  var sorted = _.sortBy(function(car){ return car.horsepower }, cars);
-  var fastest = _.last(sorted);
-  return fastest.name + ' is the fastest';
-};
-
+var append = ramda.flip(ramda.concat);
+var fastestCar = ramda.compose(append(' is the fastest'),
+                           ramda.prop('name'),
+                           ramda.last,
+                           ramda.sortBy(ramda.prop('horsepower')));
 
 module.exports = { CARS: CARS,
                    isLastInStock: isLastInStock,
